@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://your-repository-url'
+                git branch: 'main', url: 'https://github.com/Srutik/Role-Policy-with-TF..git'
             }
         }
         stage('Terraform Init') {
