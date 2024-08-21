@@ -8,7 +8,12 @@ pipeline {
         stage('Azure CLI Login') {
             steps {
                 withCredentials([azureServicePrincipal(credentialsId: "${AZURE_CREDENTIALS_ID}")]) {
-                    sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID'
+                    bat '''
+                        az login --service-principal ^
+                        -u %AZURE_CLIENT_ID% ^
+                        -p %AZURE_CLIENT_SECRET% ^
+                        --tenant %AZURE_TENANT_ID%
+                    '''
                 }
             }
         }
@@ -19,12 +24,12 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh 'terraform init'
+                bat 'terraform init'
             }
         }
         stage('Terraform Validate') {
             steps {
-                sh 'terraform validate'
+                bat 'terraform validate'
             }
         }
     }
