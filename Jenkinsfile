@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Srutik/Role-Policy-with-TF.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Srutik/Role-Policy-with-TF.']]])
             }
         }
         stage('Terraform Init') {
