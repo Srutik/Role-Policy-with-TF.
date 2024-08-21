@@ -25,7 +25,7 @@ resource "azurerm_role_definition" "custom_role" {
 }
 
 resource "azurerm_policy_definition" "custom_policy" {
-  name         = "CustomPolicy"
+  name         = "CustomPolicy1"
   policy_type  = "Custom"
   mode         = "All"
   display_name = "Custom Policy"
