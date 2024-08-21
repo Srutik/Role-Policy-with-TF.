@@ -12,12 +12,13 @@ provider "azurerm" {
 }
 
 resource "azurerm_role_definition" "custom_role" {
-  name        = "CustomStorageRole"
+  name        = "CustomRole"
   description = "Custom role with limited permissions"
   scope       = "/subscriptions/${var.subscription_id}"
 
   permissions {
     actions     = ["Microsoft.Storage/storageAccounts/read"]
+    actions     = ["Microsoft.Storage/storageAccounts/write"]
     not_actions = []
   }
 
