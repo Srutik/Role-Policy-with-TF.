@@ -18,7 +18,6 @@ resource "azurerm_role_definition" "custom_role" {
 
   permissions {
     actions     = ["Microsoft.Storage/storageAccounts/read"]
-    actions     = ["Microsoft.Storage/storageAccounts/write"]
     not_actions = []
   }
 
