@@ -53,7 +53,7 @@ resource "azurerm_subscription_policy_assignment" "custom_policy_assignment" {
 resource "azurerm_role_assignment" "custom_role_assignment" {
   principal_id   = var.principal_id
   role_definition_name = azurerm_role_definition.custom_role.name
-  scope          = var.scope
+  scope                = "/subscriptions/${var.subscription_id}"
 
   depends_on = [azurerm_role_definition.custom_role]
 }
