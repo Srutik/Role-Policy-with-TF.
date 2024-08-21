@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Srutik/Role-Policy-with-TF.git'
+                git branch: 'main', url: 'https://github.com/Srutik/Role-Policy-with-TF.'
             }
         }
         stage('Terraform Init') {
