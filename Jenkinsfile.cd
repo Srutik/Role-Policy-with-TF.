@@ -6,21 +6,21 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Srutik/Role-Policy-with-TF..git'
+                git branch: 'main', url: 'https://github.com/Srutik/Role-Policy-with-TF.git'
             }
         }
         stage('Terraform Init') {
             steps {
                 script {
-                    sh 'terraform init'
+                    bat 'terraform init'
                 }
             }
         }
         stage('Terraform Apply') {
             steps {
                 script {
-                    sh """
-                    terraform apply -var-file="terraform-${environment}.tfvars" -auto-approve
+                    bat """
+                    terraform apply -var-file="terraform-%environment%.tfvars" -auto-approve
                     """
                 }
             }
