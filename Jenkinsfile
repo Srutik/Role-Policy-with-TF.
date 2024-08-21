@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('Azure CLI Login') {
             steps {
-                withAzureServicePrincipal(credentialsId: AZURE_CREDENTIALS_ID) {
-                    // Automatic login to Azure
+                withAzureServicePrincipal(credentialsId: "${AZURE_CREDENTIALS_ID}") {
+                    sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET --tenant $AZURE_TENANT_ID'
                 }
             }
         }
